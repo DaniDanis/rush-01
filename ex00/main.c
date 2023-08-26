@@ -6,17 +6,19 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:07:14 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/26 17:08:53 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/26 18:10:59 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_check_param(char *param);
+char	ft_game(char *input);
+int		ft_check_param(char *param);
 
-void	ft_print_error(void)
+int	ft_print_error(void)
 {
 	write(1, "Error\n", 5);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -26,6 +28,7 @@ int	main(int argc, char **argv)
 		ft_print_error();
 		return (0);
 	}
-	ft_check_param(argv[1]);
+	if (ft_check_param(argv[1]))
+		ft_game(argv[1]);
 	return (0);
 }
