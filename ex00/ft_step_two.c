@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 14:05:51 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:13:44 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,64 +95,58 @@ void	ft_step_two(int *views[4], int matrix[4][4])
 		collumn = 0;
 		ft_check_with_number(matrix, number_to_check, line, useless_squares);
 		line++;
-		if (line == 4 && count_number < 4)
+	}
+	if (count_number == 3)
+		ft_complete_number(matrix, number_to_check, useless_squares);
+	else if (number_to_check == 3)
+	{
+		line = 0;
+		while (line < 4)
 		{
-			if (count_number == 3)
-				ft_complete_number(matrix, number_to_check, useless_squares);
-			else if (number_to_check == 3)
+			collumn = 0;
+			while (collumn < 4)
 			{
-				line = 0;
-				while (line < 4)
+				ft_check_useless_one(
+					views, useless_squares, line, collumn
+					);
+				collumn++;
+			}
+			line ++;
+		}
+		line = 0;
+		while (line < 4)
+		{
+			collumn = 0;
+			while (collumn < 4)
+			{
+				if (useless_squares[line][collumn] == 0)
 				{
-					collumn = 0;
-					while (collumn < 4)
+						index = 0;
+						sum = 0;
+					while (index < 4)
 					{
-						ft_check_useless_one(
-							views, useless_squares, line, collumn
-							);
-						collumn++;
+						sum += useless_squares[line][index];
+						index++;
 					}
-					line ++;
-					if (line == 4 && count_number < 4)
+					if (sum == -3)
+						matrix[line][collumn] = number_to_check;
+					else
 					{
-						line = 0;
-						while (line < 4)
+						sum = 0;
+						index = 0;
+						while (index < 4)
 						{
-							collumn = 0;
-							while (collumn < 4)
-							{
-								if (useless_squares[line][collumn] == 0)
-								{
-									index = 0;
-									sum = 0;
-									while (index < 4)
-									{
-										sum += useless_squares[line][index];
-										index++;
-									}
-									if (sum == -3)
-										matrix[line][collumn] = number_to_check;
-									else
-									{
-										sum = 0;
-										index = 0;
-										while (index < 4)
-										{
-											sum += useless_squares[index][collumn];
-											index++;
-										}
-										if (sum == -3)
-											matrix[line][collumn] = number_to_check;
-									}
-								}
-								collumn++;
-							}
-							line++;
+							sum += useless_squares[index][collumn];
+							index++;
 						}
+						if (sum == -3)
+							matrix[line][collumn] = number_to_check;
 					}
 				}
+				collumn++;
 			}
-		line = 4;
+			line++;
 		}
 	}
+	line = 4;
 }
