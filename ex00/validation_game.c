@@ -6,7 +6,7 @@
 /*   By: caredua3 <caredua3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 20:32:35 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/26 21:27:46 by caredua3         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:45:21 by caredua3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 void	invalid_extremes(
 	int col_up[], int col_down[], int row_left[], int row_right[])
 {
+	int	*inputs[4];
+
+	inputs[0] = col_up;
+	inputs[1] = col_down;
+	inputs[2] = row_left;
+	inputs[3] = row_right;
+
 	if (col_up[0] == col_up[3] && col_up[0] != 2)
 		printf(
 			"game invalido, os extremos das coluna superior não sao validos");
@@ -26,9 +33,11 @@ void	invalid_extremes(
 		printf("Game inavalido, os extremos da linha esquerda nao sao validos");
 	else if (row_right[0] == row_right[3] && row_right[0] != 2)
 		printf("Game inavalido, os extremos da linha direita nao sao validos");
+	else
+		ft_game(inputs);
 }
 
-void validation_game(char *input)
+void	validation_game(char *input)
 {
 	int col_up[4];
 	int col_down[4];
