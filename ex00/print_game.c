@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caredua3 <caredua3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 05:38:48 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/27 05:39:15 by caredua3         ###   ########.fr       */
+/*   Updated: 2023/08/27 07:25:52 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
+#include <stdio.h>
 
 void	ft_print_matrix(int matrix[4][4])
 {

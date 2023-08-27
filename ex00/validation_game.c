@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   validation_game.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caredua3 <caredua3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 20:32:35 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/27 00:45:21 by caredua3         ###   ########.fr       */
+/*   Updated: 2023/08/27 07:22:40 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+
+char	ft_game(int *views[4]);
+
 
 void	invalid_extremes(
 	int col_up[], int col_down[], int row_left[], int row_right[])
