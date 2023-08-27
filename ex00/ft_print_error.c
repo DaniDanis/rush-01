@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 14:07:14 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 18:43:12 by dadantas         ###   ########.fr       */
+/*   Created: 2023/08/27 18:43:22 by dadantas          #+#    #+#             */
+/*   Updated: 2023/08/27 18:44:21 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include<unistd.h>
 
-void	validation_game(char *input);
-int		ft_check_param(char *param);
-int		ft_print_error(void);
-
-int	main(int argc, char **argv)
+int	ft_print_error(void)
 {
-	if (argc != 2)
-	{
-		ft_print_error();
-		return (0);
-	}
-	if (ft_check_param(argv[1]))
-		validation_game(argv[1]);
-	else
-		ft_print_error();
+	write(1, "Error\n", 5);
 	return (0);
 }
