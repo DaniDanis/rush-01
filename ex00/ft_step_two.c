@@ -6,11 +6,12 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 14:28:46 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:31:03 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_save_useless_squares(int collumn, int line, int useless_squares[4][4])
+void	ft_save_useless_squares(
+	int collumn, int line, int useless_squares[4][4])
 {
 	int	index;
 
@@ -25,8 +26,7 @@ void ft_save_useless_squares(int collumn, int line, int useless_squares[4][4])
 }
 
 void	ft_check_with_number(
-	int matrix[4][4], int number_to_check, int line, int useless_squares[4][4]
-	)
+	int matrix[4][4], int number_to_check, int line, int useless_squares[4][4])
 {
 	int	collumn;
 	int	count_number;
@@ -47,8 +47,7 @@ void	ft_check_with_number(
 }
 
 void	ft_complete_number(
-	int matrix[4][4], int number_to_check, int useless_squares[4][4]
-	)
+	int matrix[4][4], int number_to_check, int useless_squares[4][4])
 {
 	int	line;
 	int	collumn;
@@ -67,8 +66,7 @@ void	ft_complete_number(
 }
 
 void	ft_check_useless_one(
-	int *views[4], int useless_squares[4][4], int line, int collumn
-	)
+	int *views[4], int useless_squares[4][4], int line, int collumn)
 {
 	if (views[line][collumn] == 3)
 	{
@@ -112,8 +110,7 @@ void	ft_step_two(int *views[4], int matrix[4][4])
 			while (collumn < 4)
 			{
 				ft_check_useless_one(
-					views, useless_squares, line, collumn
-					);
+					views, useless_squares, line, collumn);
 				collumn++;
 			}
 			line ++;
