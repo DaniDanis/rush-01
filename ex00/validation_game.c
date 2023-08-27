@@ -6,16 +6,26 @@
 /*   By: caredua3 <caredua3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 20:32:35 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/26 21:06:04 by caredua3         ###   ########.fr       */
+/*   Updated: 2023/08/26 21:27:46 by caredua3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void invalid_extremes(
-	int col_up[], int col_down[], int row_left[], int row_rght[])
+void	invalid_extremes(
+	int col_up[], int col_down[], int row_left[], int row_right[])
 {
+	if (col_up[0] == col_up[3] && col_up[0] != 2)
+		printf(
+			"game invalido, os extremos das coluna superior não sao validos");
+	else if (col_down[0] == col_down[3] && col_down[0] != 2)
+		printf(
+			"Game inavalido, os extremos da coluna inferior nao sao validos");
+	else if (row_left[0] == row_left[3] && row_left[0] != 2)
+		printf("Game inavalido, os extremos da linha esquerda nao sao validos");
+	else if (row_right[0] == row_right[3] && row_right[0] != 2)
+		printf("Game inavalido, os extremos da linha direita nao sao validos");
 }
 
 void validation_game(char *input)
@@ -49,4 +59,5 @@ void validation_game(char *input)
 		}
 		index++;
 	}
+	invalid_extremes(col_up, col_down, row_left, row_right);
 }
