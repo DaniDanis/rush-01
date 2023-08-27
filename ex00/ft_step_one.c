@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 07:31:00 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 07:31:47 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 09:24:13 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_line_zero(int *views[4], int line, int matrix[4][4], int collumn)
 		matrix[2][collumn] = 3;
 		matrix[3][collumn] = 4;
 	}
-	if (views[line][collumn] == 1)
+	else if (views[line][collumn] == 1)
 	{
 		matrix[0][collumn] = 4;
 		if (views[line + 1][collumn] == 2)
@@ -28,7 +28,7 @@ void	ft_line_zero(int *views[4], int line, int matrix[4][4], int collumn)
 			matrix[3][collumn] = 3;
 		}
 	}
-	if (views[line][collumn] == 3)
+	else if (views[line][collumn] == 3)
 	{
 		if (views[line + 1][collumn] == 2)
 		{
@@ -46,7 +46,7 @@ void	ft_line_one(int *views[4], int line, int matrix[4][4], int collumn)
 		matrix[1][collumn] = 3;
 		matrix[0][collumn] = 4;
 	}
-	if (views[line][collumn] == 1)
+	else if (views[line][collumn] == 1)
 	{
 		matrix[3][collumn] = 4;
 		if (views[line - 1][collumn] == 2)
@@ -54,7 +54,7 @@ void	ft_line_one(int *views[4], int line, int matrix[4][4], int collumn)
 			matrix[0][collumn] = 3;
 		}
 	}
-	if (views[line][collumn] == 3)
+	else if (views[line][collumn] == 3)
 	{
 		if (views[line - 1][collumn] == 2)
 		{
@@ -72,7 +72,7 @@ void	ft_line_two(int *views[4], int line, int matrix[4][4], int collumn)
 		matrix[collumn][2] = 3;
 		matrix[collumn][3] = 4;
 	}
-	if (views[line][collumn] == 1)
+	else if (views[line][collumn] == 1)
 	{
 		matrix[collumn][0] = 4;
 		if (views[line + 1][collumn] == 2)
@@ -80,7 +80,7 @@ void	ft_line_two(int *views[4], int line, int matrix[4][4], int collumn)
 			matrix[collumn][3] = 3;
 		}
 	}
-	if (views[line][collumn] == 3)
+	else if (views[line][collumn] == 3)
 	{
 		if (views[line + 1][collumn] == 2)
 		{
@@ -99,7 +99,7 @@ void	ft_line_three(
 		matrix[collumn][1] = 3;
 		matrix[collumn][0] = 4;
 	}
-	if (views[line][collumn] == 1)
+	else if (views[line][collumn] == 1)
 	{
 		matrix[collumn][3] = 4;
 		if (views[line - 1][collumn] == 2)
@@ -107,7 +107,7 @@ void	ft_line_three(
 			matrix[collumn][0] = 3;
 		}
 	}
-	if (views[line][collumn] == 3)
+	else if (views[line][collumn] == 3)
 	{
 		if (views[line - 1][collumn] == 2)
 		{
