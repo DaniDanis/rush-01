@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caredua3 <caredua3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:07:14 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 00:52:36 by caredua3         ###   ########.fr       */
+/*   Updated: 2023/08/27 12:44:57 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	main(int argc, char **argv)
 	}
 	if (ft_check_param(argv[1]))
 		validation_game(argv[1]);
+	else
+		ft_print_error();
 	return (0);
 }
