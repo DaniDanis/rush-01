@@ -6,9 +6,23 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 14:13:44 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:28:46 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void ft_save_useless_squares(int collumn, int line, int useless_squares[4][4])
+{
+	int	index;
+
+	index = 0;
+	while (index < 4)
+	{
+		useless_squares[line][index] = -1;
+		useless_squares[index][collumn] = -1;
+		index++;
+	}
+
+}
 
 void	ft_check_with_number(
 	int matrix[4][4], int number_to_check, int line, int useless_squares[4][4]
@@ -16,23 +30,15 @@ void	ft_check_with_number(
 {
 	int	collumn;
 	int	count_number;
-	int	index;
 
 	count_number = 0;
-	index = 0;
 	collumn = 0;
 	while (collumn < 4)
 	{
 		if (matrix[line][collumn] == number_to_check)
 		{
 			count_number++;
-			index = 0;
-			while (index < 4)
-			{
-				useless_squares[line][index] = -1;
-				useless_squares[index][collumn] = -1;
-				index++;
-			}
+			ft_save_useless_squares(collumn, line, useless_squares);
 		}
 		else if (matrix[line][collumn] != 0)
 			useless_squares[line][collumn] = -1;
@@ -92,7 +98,6 @@ void	ft_step_two(int *views[4], int matrix[4][4])
 	line = 0;
 	while (line < 4)
 	{
-		collumn = 0;
 		ft_check_with_number(matrix, number_to_check, line, useless_squares);
 		line++;
 	}
