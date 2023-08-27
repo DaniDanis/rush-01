@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:05:06 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 16:27:48 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:28:11 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	ft_check_left_view(
 		{
 			if (matrix[columns][2] == 4)
 			{
-				matrix[columns][2] = 2;
-				matrix[columns][1] = 1;
+				matrix[columns][0] = 1;
+				matrix[columns][1] = 2;
 			}
 			else
 			{
 				matrix[columns][1] = 1;
-				matrix[columns][2] = 2;
+				matrix[columns][0] = 2;
 			}
 		}
 	}

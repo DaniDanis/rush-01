@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 18:09:28 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 16:17:53 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:29:04 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@ void	ft_print_matrix(int matrix[4][4]);
 void	ft_step_one(int *views[4], int matrix[4][4]);
 void	ft_step_two(int *views[4], int matrix[4][4]);
 void	ft_step_three(int *views[4], int matrix[4][4]);
-
-
+void	ft_last_step(int *views[4], int matrix[4][4]);
 
 void	ft_initicialmax(int *views[4], int line, int matrix[4][4], int collumn)
 {
@@ -35,5 +34,6 @@ void	ft_game(int *views[4])
 	ft_step_one(views, matrix);
 	ft_step_two(views, matrix);
 	ft_step_three(views, matrix);
+	ft_last_step(views, matrix);
 	ft_print_matrix(matrix);
 }
