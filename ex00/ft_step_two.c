@@ -6,9 +6,24 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 18:40:58 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:53:16 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_verify_and_put_number(int useless_squares[4][4], int collumn)
+{
+	int	sum;
+	int	index;
+
+	sum = 0;
+	index = 0;
+	while (index < 4)
+	{
+		sum += useless_squares[index][collumn];
+		index++;
+	}
+	return (sum);
+}
 
 void	ft_save_useless_squares(
 	int collumn, int line, int useless_squares[4][4])
@@ -133,13 +148,8 @@ void	ft_step_two(int *views[4], int matrix[4][4])
 						matrix[line][collumn] = number_to_check;
 					else
 					{
-						sum = 0;
-						index = 0;
-						while (index < 4)
-						{
-							sum += useless_squares[index][collumn];
-							index++;
-						}
+						sum = ft_verify_and_put_number(
+								useless_squares, collumn);
 						if (sum == -3)
 							matrix[line][collumn] = number_to_check;
 					}
