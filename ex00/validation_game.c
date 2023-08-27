@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 20:32:35 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/27 07:22:40 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:32:07 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdio.h>
 
 char	ft_game(int *views[4]);
-
 
 void	invalid_extremes(
 	int col_up[], int col_down[], int row_left[], int row_right[])
@@ -25,29 +24,17 @@ void	invalid_extremes(
 	inputs[1] = col_down;
 	inputs[2] = row_left;
 	inputs[3] = row_right;
-
-	if (col_up[0] == col_up[3] && col_up[0] != 2)
-		printf(
-			"game invalido, os extremos das coluna superior não sao validos");
-	else if (col_down[0] == col_down[3] && col_down[0] != 2)
-		printf(
-			"Game inavalido, os extremos da coluna inferior nao sao validos");
-	else if (row_left[0] == row_left[3] && row_left[0] != 2)
-		printf("Game inavalido, os extremos da linha esquerda nao sao validos");
-	else if (row_right[0] == row_right[3] && row_right[0] != 2)
-		printf("Game inavalido, os extremos da linha direita nao sao validos");
-	else
-		ft_game(inputs);
+	ft_game(inputs);
 }
 
 void	validation_game(char *input)
 {
-	int col_up[4];
-	int col_down[4];
-	int row_left[4];
-	int row_right[4];
-	int index;
-	int j;
+	int	col_up[4];
+	int	col_down[4];
+	int	row_left[4];
+	int	row_right[4];
+	int	index;
+	int	j;
 
 	index = 0;
 	j = 0;
@@ -63,7 +50,6 @@ void	validation_game(char *input)
 				row_left[j] = input[index] - '0';
 			else
 				row_right[j] = input[index] - '0';
-
 			if (j == 3)
 				j = 0;
 			else

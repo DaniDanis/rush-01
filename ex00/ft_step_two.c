@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 14:31:03 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:28:33 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_step_two(int *views[4], int matrix[4][4])
 	int	line;
 	int	collumn;
 	int	index;
-	int sum;
+	int	sum;
 
 	number_to_check = 3;
 	count_number = 0;

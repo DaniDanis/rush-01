@@ -6,10 +6,9 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 07:31:00 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 09:24:13 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:26:39 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 void	ft_line_zero(int *views[4], int line, int matrix[4][4], int collumn)
 {
