@@ -6,46 +6,17 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 18:57:25 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 20:27:40 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_verify_and_put_number(int useless_squares[4][4], int collumn);
-
-void	ft_save_useless_squares(
-	int collumn, int line, int useless_squares[4][4])
-{
-	int	index;
-
-	index = 0;
-	while (index < 4)
-	{
-		useless_squares[line][index] = -1;
-		useless_squares[index][collumn] = -1;
-		index++;
-	}
-}
-
+int		ft_verify_and_put_number(int useless_squares[4][4], int collumn);
 void	ft_check_with_number(
-	int matrix[4][4], int number_to_check, int line, int useless_squares[4][4])
-{
-	int	collumn;
-	int	count_number;
+			int matrix[4][4],
+			int number_to_check,
+			int line,
+			int useless_squares[4][4]);
 
-	count_number = 0;
-	collumn = 0;
-	while (collumn < 4)
-	{
-		if (matrix[line][collumn] == number_to_check)
-		{
-			count_number++;
-			ft_save_useless_squares(collumn, line, useless_squares);
-		}
-		else if (matrix[line][collumn] != 0)
-			useless_squares[line][collumn] = -1;
-		collumn ++;
-	}
-}
 
 void	ft_complete_number(
 	int matrix[4][4], int number_to_check, int useless_squares[4][4])
