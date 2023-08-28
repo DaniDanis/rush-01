@@ -6,12 +6,9 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 20:32:35 by caredua3          #+#    #+#             */
-/*   Updated: 2023/08/27 18:32:07 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:33:57 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
 
 char	ft_game(int *views[4]);
 
@@ -27,16 +24,10 @@ void	invalid_extremes(
 	ft_game(inputs);
 }
 
-void	validation_game(char *input)
-{
-	int	col_up[4];
-	int	col_down[4];
-	int	row_left[4];
-	int	row_right[4];
-	int	index;
+void	make_cols(int col_up[4], int col_down[4], int index, char *input)
+{	
 	int	j;
 
-	index = 0;
 	j = 0;
 	while (input[index])
 	{
@@ -46,9 +37,27 @@ void	validation_game(char *input)
 				col_up[j] = input[index] - '0';
 			else if (index <= 14)
 				col_down[j] = input[index] - '0';
-			else if (index <= 22)
-				row_left[j] = input[index] - '0';
+			if (j == 3)
+				j = 0;
 			else
+				j++;
+		}
+		index++;
+	}
+}
+
+void	make_rows(int row_left[4], int row_right[4], int index, char *input)
+{
+	int	j;
+
+	j = 0;
+	while (input[index])
+	{
+		if (index % 2 == 0)
+		{
+			if (index <= 22 && index > 14)
+				row_left[j] = input[index] - '0';
+			else if (index >= 22)
 				row_right[j] = input[index] - '0';
 			if (j == 3)
 				j = 0;
@@ -57,5 +66,18 @@ void	validation_game(char *input)
 		}
 		index++;
 	}
+}
+
+void	validation_game(char *input)
+{
+	int	col_up[4];
+	int	col_down[4];
+	int	row_left[4];
+	int	row_right[4];
+	int	index;
+
+	index = 0;
+	make_cols(col_up, col_down, index, input);
+	make_rows(row_left, row_right, index, input);
 	invalid_extremes(col_up, col_down, row_left, row_right);
 }

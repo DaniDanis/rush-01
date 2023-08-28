@@ -6,11 +6,10 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:07:14 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 18:43:12 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:34:06 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 
 void	validation_game(char *input);
 int		ft_check_param(char *param);
