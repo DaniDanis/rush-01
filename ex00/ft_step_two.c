@@ -6,7 +6,7 @@
 /*   By: dadantas <dadantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:25:52 by dadantas          #+#    #+#             */
-/*   Updated: 2023/08/27 20:37:13 by dadantas         ###   ########.fr       */
+/*   Updated: 2023/08/27 20:55:26 by dadantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,10 @@ void	ft_check_with_number(
 			int number_to_check,
 			int line,
 			int useless_squares[4][4]);
-
 void	ft_complete_number(
-	int matrix[4][4], int number_to_check, int useless_squares[4][4])
-{
-	int	line;
-	int	collumn;
-	{
-		line = 0;
-		while (line < 4)
-		{
-			collumn = 0;
-			while (collumn < 4)
-			{
-				if (useless_squares[line][collumn] == 0)
-					matrix[line][collumn] = number_to_check;
-			}
-		}
-	}
-}
+			int matrix[4][4], int number_to_check, int useless_squares[4][4]);
+void	ft_make_checks(
+			int *views[4], int matrix[4][4], int useless_squares[4][4]);
 
 void	ft_check_useless_one(
 	int *views[4], int useless_squares[4][4], int line, int collumn)
@@ -62,12 +47,33 @@ void	ft_useless_square_sum(
 	}
 }
 
+void	ft_useless_verify_and_put(
+			int useless_squares[4][4], int line, int collumn, int matrix[4][4])
+{
+	int	index;
+	int	sum;
+
+	if (useless_squares[line][collumn] == 0)
+	{
+		index = 0;
+		sum = 0;
+		ft_useless_square_sum(line, index, sum, useless_squares);
+		if (sum == -3)
+			matrix[line][collumn] = 3;
+		else
+		{
+			sum = ft_verify_and_put_number(
+					useless_squares, collumn);
+			if (sum == -3)
+				matrix[line][collumn] = 3;
+		}
+	}
+}
+
 void	ft_check_useless_and_put(int useless_squares[4][4], int matrix[4][4])
 {
 	int	line;
 	int	collumn;
-	int	index;
-	int	sum;
 
 	line = 0;
 	while (line < 4)
@@ -75,21 +81,7 @@ void	ft_check_useless_and_put(int useless_squares[4][4], int matrix[4][4])
 		collumn = 0;
 		while (collumn < 4)
 		{
-			if (useless_squares[line][collumn] == 0)
-			{
-					index = 0;
-					sum = 0;
-				ft_useless_square_sum(line, index, sum, useless_squares);
-				if (sum == -3)
-					matrix[line][collumn] = 3;
-				else
-				{
-					sum = ft_verify_and_put_number(
-							useless_squares, collumn);
-					if (sum == -3)
-						matrix[line][collumn] = 3;
-				}
-			}
+			ft_useless_verify_and_put(useless_squares, line, collumn, matrix);
 			collumn++;
 		}
 		line++;
@@ -98,29 +90,20 @@ void	ft_check_useless_and_put(int useless_squares[4][4], int matrix[4][4])
 
 void	ft_step_two(int *views[4], int matrix[4][4])
 {
-	int	useless_squares[4][4] = {0};
+	int	useless_squares[4][4];
 	int	line;
 	int	collumn;
-	int	index;
-	int	sum;
 
-	line = 0;
-	while (line < 4)
-	{
-		ft_check_with_number(matrix, 3, line, useless_squares);
-		line++;
-	}
 	line = 0;
 	while (line < 4)
 	{
 		collumn = 0;
 		while (collumn < 4)
 		{
-			ft_check_useless_one(
-				views, useless_squares, line, collumn);
+			useless_squares[line][collumn] = 0;
 			collumn++;
 		}
-		line ++;
+		line++;
 	}
-	ft_check_useless_and_put(useless_squares, matrix);
+	ft_make_checks(views, matrix, useless_squares);
 }
